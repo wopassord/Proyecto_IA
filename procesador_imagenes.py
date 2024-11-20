@@ -1,6 +1,7 @@
 import os
 from redimensionador import Redimensionador
 from filtrador_gaussiano import FiltradorGaussiano
+from color_extractor import ColorExtractor
 
 class ProcesadorImagenes:
     """
@@ -15,6 +16,7 @@ class ProcesadorImagenes:
         """
         self.redimensionador = Redimensionador(tamaño_objetivo=tamaño_objetivo)
         self.filtrador_gaussiano = FiltradorGaussiano()
+        self.color_extractor = ColorExtractor()
 
     def redimensionar_carpeta(self, carpeta_origen, carpeta_destino):
         """
@@ -38,3 +40,6 @@ class ProcesadorImagenes:
         print("Iniciando aplicación de filtros gaussianos...")
         self.filtrador_gaussiano.procesar_carpeta(carpeta_origen, carpeta_destino)
         print("Aplicación de filtros gaussianos completada.")
+
+    def extraer_colores(self, carpeta_origen):
+        self.color_extractor.procesar_carpeta(carpeta_origen)

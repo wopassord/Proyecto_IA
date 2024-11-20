@@ -29,6 +29,14 @@ def main():
                  procesador.aplicar_filtros_gaussianos(carpeta_filtros_origen, carpeta_filtros_destino)
                  print("Filtrado Gaussiano completado.")
             if opcion == "3":
+                 print("Extrayendo colores promedio...")
+                 procesador.extraer_colores(carpeta_filtros_destino)
+                 print("Extracción de colores promedio completada.")
+                 print("Comenzando ploteado de valores RGB...")
+                 procesador.color_extractor.plotear_rgb()
+                 procesador.color_extractor.visualizar_mascaras(carpeta_filtros_origen)
+                 print("Ploteado completado.")
+            if opcion == "4":
                  print("Saliendo...")
                  break
             else:

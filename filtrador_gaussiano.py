@@ -7,7 +7,7 @@ class FiltradorGaussiano:
     Clase para aplicar filtros gaussianos pasa bajo y pasa alto a imágenes.
     """
 
-    def __init__(self, kernel_pasa_bajo=(5, 5), kernel_pasa_alto=(5, 5)):
+    def __init__(self, kernel_pasa_bajo=(9, 9), kernel_pasa_alto=(5, 5)):
         """
         Inicializa el filtrador gaussiano con tamaños de kernel para pasa bajo y pasa alto.
 
@@ -28,7 +28,7 @@ class FiltradorGaussiano:
         imagen_suavizada = cv2.GaussianBlur(imagen, self.kernel_pasa_bajo, 0)
 
         # Aumento de contraste con filtro pasa alto
-        imagen_resaltada = cv2.addWeighted(imagen, 2.5, imagen_suavizada, -0.9, 0)
+        imagen_resaltada = cv2.addWeighted(imagen, 1.5, imagen_suavizada, -0.5, 0)
 
         return imagen_resaltada
 
